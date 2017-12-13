@@ -1,0 +1,54 @@
+/*
+    Desenvolvido por TI Serveloja, dezembro de 2017
+*/
+
+a, a:active, a:hover, a:visited {
+    text-decoration: none;
+}
+
+p {
+  margin: 20px 0px;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 20px;
+  line-height: 130%;
+  color: #666;
+}
+
+h3 {
+  background-color: #008316;
+  color: #fff;
+  padding: 5px 0px 8px 8px;
+  width: 97%;
+  border-radius: 3px;
+}
+
+#headerPlugin {
+	position: relative;
+	padding: 15px 0px 15px 22px;
+	width: 100%;
+	height: 40px;
+	background-color: #224527;
+	top: 0px;
+	z-index: 1200;
+    margin-left: -20px;
+}
+
+	#headerPlugin #logo {
+		float: left;
+		width: 130px;
+	}
+
+		#headerPlugin #logo img {
+			width: 100%;
+		}
+
+.clear {
+    display: block;
+    visibility: hidden;
+}
