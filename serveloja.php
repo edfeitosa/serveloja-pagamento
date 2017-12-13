@@ -36,6 +36,7 @@ function create_db_table() {
 }
 
 register_activation_hook(__FILE__, 'create_db_table');
+define('WP_UNINSTALL_PLUGIN', WP_PLUGIN_URL.'/serveloja/uninstall.php');
 define('PASTA_PLUGIN', WP_PLUGIN_URL.'/serveloja/');
 define('PCON_DIR', plugin_dir_path(__FILE__));
 require PCON_DIR.'/settings.php';
@@ -48,8 +49,8 @@ function delete_db_table() {
   global $wpdb;
   $tabela_aplicacao = $wpdb->prefix . 'aplicacao';
   $tabela_cartoes = $wpdb->prefix . 'cartoes';
-  $wpdb->query("DROP TABLE IF EXISTS $tabela_aplicacao");
-  $wpdb->query("DROP TABLE IF EXISTS $tabela_cartoes");
+  $wpdb->query("TRUNCATE TABLE $tabela_aplicacao");
+  $wpdb->query("TRUNCATE TABLE $tabela_cartoes");
   delete_option("serveloja");
   delete_site_option('serveloja');
 }
