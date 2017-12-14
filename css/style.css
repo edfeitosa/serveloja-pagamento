@@ -52,3 +52,13 @@ h3 {
     display: block;
     visibility: hidden;
 }
+
+.cartao {
+  background-color: #e6e6e6;
+  border: 1px solid #999;
+  border-radius: 3px;
+  float: left;
+  padding: 10px;
+  width: 300px;
+  margin: 0px 10px 10px 0px;
+}

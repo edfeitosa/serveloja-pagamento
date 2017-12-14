@@ -10,13 +10,13 @@
   $funcoes = new Serveloja_functions; ?>
 
   <?php // verifica se já existem informações sobre a aplicação
-    $dados = $funcoes::total_aplicacoes();
-    $apl_id = ($funcoes::total_aplicacoes() == "0") ? "0" : $dados[0]->apl_id;
-    $apl_nome = ($funcoes::total_aplicacoes() == "0") ? "" : $dados[0]->apl_nome;
-    $apl_token = ($funcoes::total_aplicacoes() == "0") ? "" : $dados[0]->apl_token;
-    $apl_prefixo = ($funcoes::total_aplicacoes() == "0") ? "" : $dados[0]->apl_prefixo;
-    $apl_email = ($funcoes::total_aplicacoes() == "0") ? "" : $dados[0]->apl_email;
-    $apl_ambiente = ($funcoes::total_aplicacoes() == "0") ? "" : $dados[0]->apl_ambiente;
+    $dados = $funcoes::aplicacao();
+    $apl_id = ($dados == "0") ? "0" : $dados[0]->apl_id;
+    $apl_nome = ($dados == "0") ? "" : $dados[0]->apl_nome;
+    $apl_token = ($dados == "0") ? "" : $dados[0]->apl_token;
+    $apl_prefixo = ($dados == "0") ? "" : $dados[0]->apl_prefixo;
+    $apl_email = ($dados == "0") ? "" : $dados[0]->apl_email;
+    $apl_ambiente = ($dados == "0") ? "" : $dados[0]->apl_ambiente;
   ?>
 
   <!-- cabeçalho -->
@@ -28,14 +28,14 @@
 
   <?php // post configurações principais
   if (isset($_POST["salvar_config"])) {
-    echo $funcoes::save_configuracoes(
-      $_POST["apl_nome"],
-      $_POST["apl_token"],
-      $_POST["apl_prefixo"],
-      $_POST["apl_email"],
-      $_POST["apl_ambiente"],
-      $_POST["apl_id"]
-    );
+    // atribui os valores do post às variaveis quando houver
+    $apl_nome = $_POST["apl_nome"];
+    $apl_token = $_POST["apl_token"];
+    $apl_prefixo = $_POST["apl_prefixo"];
+    $apl_email = $_POST["apl_email"];
+    $apl_ambiente = $_POST["apl_ambiente"];
+    // executa
+    echo $funcoes::save_configuracoes($_POST["apl_nome"], $_POST["apl_token"], $_POST["apl_prefixo"], $_POST["apl_email"], $_POST["apl_ambiente"], $_POST["apl_id"]);
   } ?>
 
   <h1>Pagamentos Serveloja</h1>
@@ -47,10 +47,10 @@
   <p>Todos os campos marcados com <strong>(*)</strong> são de preenchimento obrigatório.</p>
   <form name="configuracoes" method="post" action="">
     <div class="tituloInput">Nome da Aplicação (*)</div>
-    <input type="text" class="input" name="apl_nome" value="<?php echo $apl_nome; ?>" placeholder="Informe aqui, o nome da aplicação" />
+    <input type="text" class="input" name="apl_nome" value="<?php echo $apl_nome; ?>" maxlength="30" placeholder="Informe aqui, o nome da aplicação" />
     <br />
     <div class="tituloInput">Token da Aplicação (*)</div>
-    <input type="text" class="input" name="apl_token" value="<?php echo $apl_token; ?>" placeholder="Informe aqui, o token da aplicação" />
+    <input type="text" class="input" name="apl_token" value="<?php echo $apl_token; ?>" maxlength="30" placeholder="Informe aqui, o token da aplicação" />
     <br />
     <div class="tituloInput">Prefixo das transações</div>
     <input type="text" class="input" name="apl_prefixo" value="<?php echo $apl_prefixo; ?>" placeholder="Informe aqui, o prefixo para idetificar as transações realizadas" />
@@ -67,5 +67,25 @@
     <input type="hidden" name="apl_id" value="<?php echo $apl_id; ?>" />
     <input type="submit" class="submit" name="salvar_config" value="Salvar" name="salvar" />
   </form>
+
+  <!-- dados dos cartões -->
+  <?php if ($dados != "0") { ?>
+
+    <div class="clear"></div>
+    <h3 style="margin-top: 30px;">Formas de recebimento</h3>
+    <p>
+      Abaixo, as bandeiras dos cartões que você pode utilizar para receber seus pagamentos.
+      Para utilizar, marque a opção <b>"Receber"</b> e informe em até quantas vezes as compras podem ser divididas no momento da compra.
+    </p>
+
+    <form method="post" name="cartoes" action="">
+      <div class="cartao"></div>
+      <div class="cartao"></div>
+      <div class="cartao"></div>
+      <div class="clear"></div>
+      <input type="submit" class="submit" name="salvar_config" value="Salvar" name="salvar" />
+    </form>
+
+  <?php } ?>
 
 <?php } ?>
