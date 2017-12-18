@@ -91,10 +91,25 @@
       }
     }
 
+    // validação de e-mail
+    private function valida_email($email) {
+      $conta = "^[a-zA-Z0-9\._-]+@";
+      $domino = "[a-zA-Z0-9\._-]+.";
+      $extensao = "([a-zA-Z]{2,4})$";
+      $pattern = $conta.$domino.$extensao;
+      if (ereg($pattern, $email)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
     // salva dados aplicação
     public function save_configuracoes($apl_nome, $apl_token, $apl_prefixo, $apl_email, $apl_ambiente, $apl_id) {
       if ($apl_nome == "" || $apl_token == "" || $apl_ambiente == "") {
         return Serveloja_functions::div_resposta("fecha_mensagem", "erro", "Os campos marcados com (*) devem ser preencidos");
+      } else if (Serveloja_functions::valida_email($apl_email) == false) {
+        return Serveloja_functions::div_resposta("fecha_mensagem", "erro", "Informe um e-mail válido para continuar");
       } else {
         if ($apl_id == "0") {
           return Serveloja_functions::insert_aplicacao($apl_nome, $apl_token, $apl_prefixo, $apl_email, $apl_ambiente);

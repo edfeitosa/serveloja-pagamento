@@ -36,6 +36,7 @@
     $apl_ambiente = $_POST["apl_ambiente"];
     // executa
     echo $funcoes::save_configuracoes($_POST["apl_nome"], $_POST["apl_token"], $_POST["apl_prefixo"], $_POST["apl_email"], $_POST["apl_ambiente"], $_POST["apl_id"]);
+    $dados = $funcoes::aplicacao();
   } ?>
 
   <?php // post cartões
@@ -138,7 +139,7 @@
     <?php } else { ?>
       <div class="alerta">Antes de selecionar as bandeiras dos cartões, você precisa informar os dados da aplicação</div>
     <?php } ?>
-
+    <div class="clear"></div>
   </div>
 
 <?php } ?>

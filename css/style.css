@@ -32,7 +32,7 @@ h3 {
 	background-color: #224527;
 	top: 0px;
 	z-index: 1200;
-    margin-left: -20px;
+  margin-left: -20px;
 }
 
 	#headerPlugin #logo {
@@ -61,7 +61,7 @@ h3 {
 
 .cartao .img_cartao {
   float: left;
-  width: 40%;
+  width: 30%;
   margin-right: 10px;
 }
 
@@ -71,7 +71,13 @@ h3 {
 
 .painel {
     border-top: 1px solid #008316;
-    width: 98%;
+    background-color: #fff;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 0px 20px 20px 20px;
+    border-radius: 0px 0px 5px 5px;
+    width: 95%;
     position: relative;
 }
 

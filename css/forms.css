@@ -13,9 +13,9 @@
     padding: 7px;
     font-size: 14px;
     border-radius: 3px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    width: 50%;
+    border: 1px solid #999 !important;
+    background-color: #f6f6f6 !important;
+    width: 60%;
     -moz-box-shadow: inset 2px 2px 4px #ccc;
     -webkit-box-shadow: inset 2px 2px 4px #ccc;
     box-shadow: inset 2px 2px 4px #ccc;
@@ -25,8 +25,8 @@
     padding: 7px;
     font-size: 14px;
     border-radius: 3px;
-    border: 1px solid #666;
-    background-color: #fff;
+    border: 1px solid #999;
+    background-color: #f6f6f6;
     width: 50%;
     height: 70px;
     -moz-box-shadow: inset 2px 2px 4px #ccc;
@@ -39,12 +39,12 @@
     padding: 6px 7px 6px 7px !important;
     font-size: .875rem;
     border-radius: 3px;
-    border: 1px solid #ddd;
-    background-color: #fff;
+    border: 1px solid #999;
+    background-color: #f6f6f6;
     -moz-box-shadow: inset 2px 2px 4px #eee;
     -webkit-box-shadow: inset 2px 2px 4px #eee;
     box-shadow: inset 2px 2px 4px #eee;
-    width: 50%;
+    width: 60%;
     height: 35px !important;
     margin-top: 10px;
     margin-bottom: 0px;
@@ -86,7 +86,7 @@ input[type='radio'] {
     -webkit-transition: border 500ms;
     background: -webkit-linear-gradient(#fafafa, #dcdcdc);
     border-radius: 100%;
-    border: 1px solid #a0a0a0;
+    border: 1px solid #999;
     display: inline-block;
     height: 15px;
     margin-bottom: 0;
@@ -184,7 +184,7 @@ input[type='file'] {
     width: 300px;
     padding: 10px;
     background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    border: 1px solid #999;
     border-radius: 3px;
     margin: 5px 10px 5px 0px;
 }
